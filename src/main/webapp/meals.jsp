@@ -18,15 +18,21 @@
         <th>Date/Time</th>
         <th>Description</th>
         <th>Calories</th>
+        <th>Edit</th>
+        <th>Delete</th>
     </tr>
     </thead>
+    <tbody>
         <c:forEach var="it" items="${mealList}">
             <tr class="${it.isExceed() ? 'exceedTrue' : 'exceedFalse'}">
                 <td>${f:formatLocalDateTime(it.getDateTime(), 'yyyy-MM-dd HH:mm')}</td>
                 <td>${it.getDescription()}</td>
                 <td>${it.getCalories()}</td>
+                <td><a href="">Edit</a></td>
+                <td><a href="">Delete</a></td>
             </tr>
         </c:forEach>
+    </tbody>
 </table>
 </body>
 </html>

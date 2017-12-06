@@ -17,6 +17,7 @@ import java.util.List;
 public class MealRestController {
     private final Logger log = LoggerFactory.getLogger(getClass());
 
+
     private final MealService service;
 
     @Autowired
@@ -29,6 +30,12 @@ public class MealRestController {
         log.info("create meal {} for user {}", meal, userId);
         ValidationUtil.checkNew(meal);
         return service.create(meal, userId);
+    }
+
+    public Meal update(Meal meal) {
+        int userId = AuthorizedUser.id();
+        log.info("update meal {} for user {}", meal, userId);
+        return service.update(meal, userId);
     }
 
     public Meal get(int id) {
